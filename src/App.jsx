@@ -21,6 +21,10 @@ import CoursesPage from './components/CoursesPage';
 import GalleryPage from './components/GalleryPage';
 import ContactPage from './components/ContactPage';
 import AjaySinghPage from './components/AjaySinghPage';
+import BlogPage from './components/BlogPage';
+import BlogPostPage from './components/BlogPostPage';
+import AreaNavigation from './components/AreaNavigation';
+import DynamicServicePage from './components/DynamicServicePage';
 
 // Scroll to top helper
 const ScrollToTop = () => {
@@ -31,29 +35,6 @@ const ScrollToTop = () => {
   return null;
 };
 
-// Coming Soon Page Component
-const ComingSoon = ({ title }) => (
-  <div style={{
-    padding: '100px 20px',
-    textAlign: 'center',
-    minHeight: '60vh',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }}>
-    <h1 style={{ fontSize: '3.5rem', marginBottom: '24px', fontWeight: '800', color: 'var(--primary)' }}>{title}</h1>
-    <div style={{ backgroundColor: 'var(--primary-light)', border: '1px solid var(--border)', padding: '40px', borderRadius: '30px', maxWidth: '600px', boxShadow: 'var(--shadow-lg)' }}>
-      <h2 style={{ color: 'var(--primary)', marginBottom: '12px', fontWeight: '800' }}>🚀 Coming Soon</h2>
-      <p style={{ color: 'var(--text-muted)', marginBottom: '32px', fontSize: '1.1rem', lineHeight: '1.6' }}>We are crafting a premium experience for this section. Stay tuned!</p>
-      <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
-        <a href="tel:09973595162" className="btn btn-primary" style={{ padding: '14px 28px' }}>Call Now</a>
-        <a href="https://wa.me/919973595162" className="btn btn-secondary" style={{ padding: '14px 28px' }}>WhatsApp</a>
-      </div>
-    </div>
-  </div>
-);
-
 const HomePage = () => (
   <>
     <Hero />
@@ -62,6 +43,7 @@ const HomePage = () => (
     <RecentResultsBanner />
     <Courses />
     <WhyPrayas />
+    <AreaNavigation />
     <Faculty />
     <AjayHighlight />
     <Gallery />
@@ -86,6 +68,19 @@ function App() {
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/ajay-singh" element={<AjaySinghPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
+
+            {/* Main Service Pages */}
+            <Route path="/ssc-coaching-patna" element={<DynamicServicePage type="ssc" locationName="Patna" />} />
+            <Route path="/banking-coaching-patna" element={<DynamicServicePage type="banking" locationName="Patna" />} />
+            <Route path="/railway-coaching-patna" element={<DynamicServicePage type="railway" locationName="Patna" />} />
+
+            {/* Hyperlocal Location Pages (SSC Focus) */}
+            <Route path="/ssc-coaching-boring-road" element={<DynamicServicePage type="ssc" isHyperlocal={true} areaName="Boring Road" />} />
+            <Route path="/ssc-coaching-mithapur" element={<DynamicServicePage type="ssc" isHyperlocal={true} areaName="Mithapur" />} />
+            <Route path="/ssc-coaching-anisabad" element={<DynamicServicePage type="ssc" isHyperlocal={true} areaName="Anisabad" />} />
+            <Route path="/ssc-coaching-musallahpur-hat" element={<DynamicServicePage type="ssc" isHyperlocal={true} areaName="Musallahpur Hat" />} />
           </Routes>
         </main>
         <Footer />

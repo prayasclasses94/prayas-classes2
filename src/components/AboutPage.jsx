@@ -48,7 +48,7 @@ const AboutPage = () => {
             {/* 1. Hero Section (About Intro) */}
             <section className="bg-mandala" style={{
                 position: 'relative',
-                padding: '160px 0 100px',
+                padding: '10px 0 100px',
                 backgroundColor: 'var(--accent-warm)',
                 overflow: 'hidden'
             }}>
@@ -392,8 +392,8 @@ const AboutPage = () => {
                                 </div>
                                 <div style={{
                                     position: 'absolute',
-                                    top: '40px',
-                                    right: '-40px',
+                                    bottom: '40px',
+                                    left: '-40px',
                                     backgroundColor: 'var(--accent-saffron)',
                                     color: 'white',
                                     padding: '20px 30px',
@@ -672,9 +672,9 @@ const AboutPage = () => {
                     }
 
                     /* Special handlers for specific absolute elements */
-                    div[style*="right: -40px"] {
-                        right: 10px !important;
-                        top: 20px !important;
+                    div[style*="left: -40px"] {
+                        left: 10px !important;
+                        bottom: 20px !important;
                         zoom: 0.8;
                     }
 

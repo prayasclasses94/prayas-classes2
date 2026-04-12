@@ -35,10 +35,20 @@ const Footer = () => {
           <div>
             <h4 style={{ fontWeight: '900', marginBottom: '32px', fontSize: '1.1rem', letterSpacing: '0.05em' }}>NAVIGATE</h4>
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {['Home', 'About', 'Courses', 'Gallery', 'Contact'].map(link => (
+              {['Home', 'About', 'Courses', 'Gallery', 'Contact', 'Blog'].map(link => (
                 <li key={link}>
                   <Link to={link === 'Home' ? '/' : `/${link.toLowerCase()}`} style={{ color: 'rgba(255, 255, 255, 0.6)', textDecoration: 'none', transition: 'var(--transition-base)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <ArrowRight size={14} opacity={0.3} /> {link}
+                  </Link>
+                </li>
+              ))}
+              <li style={{ marginTop: '12px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                <span style={{ fontSize: '0.7rem', fontWeight: '900', color: 'var(--accent-gold)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Areas We Serve</span>
+              </li>
+              {['Boring Road', 'Mithapur', 'Anisabad'].map(loc => (
+                <li key={loc}>
+                  <Link to={`/ssc-coaching-${loc.toLowerCase().replace(' ', '-')}`} style={{ color: 'rgba(255, 255, 255, 0.4)', textDecoration: 'none', transition: 'var(--transition-base)', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem' }}>
+                    <MapPin size={12} opacity={0.3} /> {loc}
                   </Link>
                 </li>
               ))}
@@ -49,11 +59,16 @@ const Footer = () => {
           <div>
             <h4 style={{ fontWeight: '900', marginBottom: '32px', fontSize: '1.1rem', letterSpacing: '0.05em' }}>PROGRAMS</h4>
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {['SSC Special', 'Banking Mastery', 'Railway Prep', 'English Booster', 'GS Research'].map(link => (
-                <li key={link}>
-                  <a href="/courses" style={{ color: 'rgba(255, 255, 255, 0.6)', textDecoration: 'none', transition: 'var(--transition-base)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <ArrowRight size={14} opacity={0.3} /> {link}
-                  </a>
+              {[
+                { name: 'SSC Coaching', path: '/ssc-coaching-patna' },
+                { name: 'Banking Exams', path: '/banking-coaching-patna' },
+                { name: 'Railway Special', path: '/railway-coaching-patna' },
+                { name: 'English Booster', path: '/ajay-singh' }
+              ].map(link => (
+                <li key={link.name}>
+                  <Link to={link.path} style={{ color: 'rgba(255, 255, 255, 0.6)', textDecoration: 'none', transition: 'var(--transition-base)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <ArrowRight size={14} opacity={0.3} /> {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -61,15 +76,21 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 style={{ fontWeight: '900', marginBottom: '32px', fontSize: '1.1rem', letterSpacing: '0.05em' }}>CONTACT</h4>
+            <h4 style={{ fontWeight: '900', marginBottom: '32px', fontSize: '1.1rem', letterSpacing: '0.05em' }}>CONTACT US</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                 <MapPin size={20} color="var(--accent-gold)" style={{ flexShrink: 0 }} />
-                <span style={{ color: 'rgba(255, 255, 255, 0.6)', lineHeight: '1.6', fontSize: '0.9rem' }}>Jagdamba Tower, Boring Road, Patna, Bihar</span>
+                <span style={{ color: 'rgba(255, 255, 255, 0.6)', lineHeight: '1.6', fontSize: '0.9rem' }}>
+                  JAGDAMBA TOWER, SAHDEO MAHTO MARG,<br />
+                  BORING ROAD, PATNA, BIHAR
+                </span>
               </div>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
                 <Phone size={20} color="var(--accent-gold)" style={{ flexShrink: 0 }} />
-                <a href="tel:09973595162" style={{ color: 'white', textDecoration: 'none', fontWeight: '700' }}>99735 95162</a>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <a href="tel:09973595162" style={{ color: 'white', textDecoration: 'none', fontWeight: '700' }}>99735 95162</a>
+                  <a href="tel:09031005011" style={{ color: 'white', textDecoration: 'none', fontWeight: '700' }}>90310 05011</a>
+                </div>
               </div>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
                 <MessageCircle size={20} color="var(--accent-gold)" style={{ flexShrink: 0 }} />
@@ -81,6 +102,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
+
 
         </div>
 

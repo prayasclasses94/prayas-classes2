@@ -43,7 +43,7 @@ const CoursesPage = () => {
             {/* 1. HERO SECTION (COURSES INTRO) */}
             <section className="bg-mandala" style={{
                 position: 'relative',
-                padding: '160px 0 100px',
+                padding: '10px 0 100px',
                 backgroundColor: 'var(--primary)',
                 color: 'white',
                 overflow: 'hidden'

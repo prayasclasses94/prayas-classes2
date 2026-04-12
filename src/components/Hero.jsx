@@ -6,7 +6,7 @@ const Hero = () => {
     return (
         <section className="bg-mandala" style={{
             position: 'relative',
-            padding: '120px 0 100px',
+            padding: '10px 0 100px',
             backgroundColor: 'var(--background)',
             overflow: 'hidden'
         }}>
@@ -56,7 +56,7 @@ const Hero = () => {
                             letterSpacing: '-0.04em',
                             marginBottom: '24px'
                         }}>
-                            Best Coaching for <span style={{ color: 'var(--accent-saffron)' }}>SSC & Banking</span> in Patna.
+                            Best Coaching Institute in <span style={{ color: 'var(--accent-saffron)' }}>Patna</span> for SSC, Banking & Railway Exams.
                         </h1>
 
                         <div className="font-hindi" style={{
