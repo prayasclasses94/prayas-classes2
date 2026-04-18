@@ -34,17 +34,17 @@ const Header = () => {
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase'
             }}>
-                <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
-                        <span style={{ display: 'flex', alignItems: 'center', gap: '8px', opacity: 0.9 }}>
-                            <Award size={14} /> ADMISSIONS OPEN 2026-27
+                <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ display: 'flex', gap: 'clamp(10px, 3vw, 32px)', alignItems: 'center' }}>
+                        <span style={{ display: 'flex', alignItems: 'center', gap: '6px', opacity: 0.9 }}>
+                            <Award size={14} /> <span className="hide-xs">ADMISSIONS OPEN</span> 2026-27
                         </span>
                         <span className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: '8px', opacity: 0.9 }}>
                             <Globe size={14} /> PATNA'S MOST TRUSTED FACULTY
                         </span>
                     </div>
                     <div>
-                        <a href="tel:09973595162" style={{ color: 'white', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <a href="tel:09973595162" style={{ color: 'white', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px', whiteSpace: 'nowrap' }}>
                             <Phone size={14} /> 99735 95162
                         </a>
                     </div>
@@ -52,7 +52,7 @@ const Header = () => {
             </div>
 
             {/* Premium Header */}
-            <header style={{
+            <header className="main-header" style={{
                 position: 'sticky',
                 top: 0,
                 zIndex: 1000,
@@ -75,7 +75,7 @@ const Header = () => {
                                 filter: 'drop-shadow(var(--shadow-sm))'
                             }}
                         />
-                        <div className="hide-mobile">
+                        <div style={{ display: 'flex', flexDirection: 'column' }}>
                             <span style={{ display: 'block', fontSize: '1.4rem', fontWeight: '900', color: 'var(--primary)', letterSpacing: '-0.03em', lineHeight: 1 }}>PRAYAS</span>
                             <span style={{ fontSize: '0.65rem', fontWeight: '800', color: 'var(--secondary)', letterSpacing: '0.2em' }}>CLASSES</span>
                         </div>
@@ -128,7 +128,7 @@ const Header = () => {
                     <button
                         className="show-mobile"
                         onClick={() => setIsMobileMenuOpen(true)}
-                        style={{ background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer', padding: '8px' }}
+                        style={{ background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer', padding: '8px', marginRight: '-8px' }}
                     >
                         <Menu size={28} />
                     </button>
@@ -158,7 +158,10 @@ const Header = () => {
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '60px' }}>
                             <Link to="/" onClick={() => setIsMobileMenuOpen(false)} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '12px' }}>
                                 <img src="/logo.png" alt="Prayas Classes" style={{ height: '40px', width: 'auto' }} />
-                                <span style={{ fontWeight: '900', color: 'var(--primary)', fontSize: '1.25rem' }}>PRAYAS</span>
+                                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                    <span style={{ fontWeight: '900', color: 'var(--primary)', fontSize: '1.25rem', lineHeight: 1 }}>PRAYAS</span>
+                                    <span style={{ fontWeight: '800', color: 'var(--secondary)', fontSize: '0.6rem', letterSpacing: '0.1em' }}>CLASSES</span>
+                                </div>
                             </Link>
                             <button
                                 onClick={() => setIsMobileMenuOpen(false)}
@@ -203,8 +206,14 @@ const Header = () => {
             </AnimatePresence>
 
             <style>{`
-                @media (max-width: 991px) { .hide-mobile { display: none !important; } }
+                @media (max-width: 991px) { 
+                    .hide-mobile { display: none !important; } 
+                    .main-header { padding: 10px 0 0px !important; }
+                }
                 @media (min-width: 992px) { .show-mobile { display: none !important; } }
+                @media (max-width: 480px) {
+                    .hide-xs { display: none !important; }
+                }
             `}</style>
         </>
     );
